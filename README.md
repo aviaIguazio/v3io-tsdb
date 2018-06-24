@@ -81,13 +81,13 @@ it has built-in help, see the following add/query examples:
 	tsdbctl create -p <path> -r count,sum,max -i 30
 
 	# display DB info with metric names (types) 
-	tsdbctl info -n
+	tsdbctl -s <server>:<port>/<container> -p <path> info -n
 
 	# display all the CPU metrics for win servers from the last hours, in CSV format 
-	tsdbctl query cpu -f "os=='win'" -l 1h -o csv
+	tsdbctl -s <server>:<port>/<container> -p <path> query cpu -f "os=='win'" -l 1h -o csv
 
 	# append a sample (73.2) to the specified metric type (cpu) + labels at the current time
-	tsdbctl add cpu os=win,node=xyz123 -d 73.2
+	tsdbctl -s <server>:<port>/<container> -p add cpu os=win,node=xyz123 -d 73.2
 ```
 
 For use with nuclio function you can see function example under [\nuclio](nuclio)
